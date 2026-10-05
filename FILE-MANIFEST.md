@@ -1,0 +1,27 @@
+# File Manifest
+
+- `.agents/rules/forms.md`
+- `.agents/rules/ui.md`
+- `.agents/workflows/build-homepage.md`
+- `AGENTS.md`
+- `README.md`
+- `assets/references/README.md`
+- `assets/references/a_dark_cinematic_high_contrast_website_concept_l.png`
+- `assets/references/journey-studio-blue-mockup.png`
+- `docs/00-master-build-brief.md`
+- `docs/01-design-system.md`
+- `docs/02-site-architecture.md`
+- `docs/03-homepage.md`
+- `docs/04-content-and-voice.md`
+- `docs/05-components.md`
+- `docs/06-project-inquiry.md`
+- `docs/07-technical-architecture.md`
+- `docs/08-motion-and-interaction.md`
+- `docs/09-supabase.md`
+- `docs/10-resend.md`
+- `docs/11-seo-accessibility.md`
+- `docs/12-acceptance-checklist.md`
+- `docs/13-assets-and-content.md`
+- `docs/14-future-growth.md`
+- `docs/15-antigravity-master-prompt.md`
+- `docs/16-about-and-art.md`
