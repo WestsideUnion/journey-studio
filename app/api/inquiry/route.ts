@@ -22,7 +22,7 @@ export async function POST(req: NextRequest) {
 
     const data = validation.data;
     const resendApiKey = process.env.RESEND_API_KEY;
-    const toEmail = process.env.INQUIRY_TO_EMAIL || "hello@thejourneystudio.com";
+    const toEmail = process.env.INQUIRY_TO_EMAIL || "thejourneystudio2023@gmail.com";
     const fromEmail = process.env.INQUIRY_FROM_EMAIL || "Journey Studio <onboarding@resend.dev>";
 
     // If Resend API key is configured, send notifications

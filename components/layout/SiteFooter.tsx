@@ -83,10 +83,10 @@ export default function SiteFooter() {
                 Direct inquiries for freelance commissions, creative direction, brand collaborations, and speaking:
               </p>
               <a
-                href="mailto:hello@thejourneystudio.com"
+                href="mailto:thejourneystudio2023@gmail.com"
                 className="text-base text-white hover:text-[#19BDF2] transition-colors font-[family-name:var(--font-inter-tight)] font-semibold inline-flex items-center gap-1.5"
               >
-                hello@thejourneystudio.com <ArrowUpRight className="w-4 h-4 text-[#19BDF2]" />
+                thejourneystudio2023@gmail.com <ArrowUpRight className="w-4 h-4 text-[#19BDF2]" />
               </a>
 
               <div className="flex items-center space-x-6 pt-4 text-xs tracking-widest uppercase font-mono text-white/60">

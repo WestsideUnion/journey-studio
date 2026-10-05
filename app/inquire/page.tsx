@@ -28,10 +28,10 @@ export default function InquirePage() {
         <div className="mt-16 pt-10 border-t border-white/[0.1] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-xs font-mono text-white/50">
           <p>FOR GENERAL QUESTIONS, PRESS & SPEAKING:</p>
           <a
-            href="mailto:hello@thejourneystudio.com"
-            className="text-[#19BDF2] hover:text-[#41D7FF] transition-colors"
+            href="mailto:thejourneystudio2023@gmail.com"
+            className="text-[#19BDF2] hover:text-[#41D7FF] transition-colors uppercase"
           >
-            HELLO@THEJOURNEYSTUDIO.COM →
+            thejourneystudio2023@gmail.com →
           </a>
         </div>
       </div>
