@@ -6,6 +6,7 @@ export const inquirySchema = z.object({
   brand: z.string().optional(),
   role: z.string().optional(),
   website: z.string().optional(),
+  projectTypes: z.array(z.string()).optional(),
   projectObjective: z.string().optional(),
   distribution: z.array(z.string()).optional(),
   budget: z.string().optional(),
@@ -14,6 +15,8 @@ export const inquirySchema = z.object({
   attraction: z.string().optional(),
   story: z.string().min(10, "Please tell us a bit about your project narrative"),
   location: z.string().optional(),
+  discovery: z.string().optional(),
+  additionalNotes: z.string().optional(),
   honeypot: z.string().max(0, "Bot submission detected").optional(),
 });
 

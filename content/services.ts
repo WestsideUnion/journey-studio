@@ -11,26 +11,79 @@ export interface Service {
 
 export const servicesData: Service[] = [
   {
-    id: "photo-film",
+    id: "content-brand-stories",
     index: "01",
-    title: "PHOTO + FILM",
-    shortDescription:
-      "Cinematic photography and video content for brands, creatives and communities.",
+    title: "CONTENT & BRAND STORIES",
+    shortDescription: "Short films and social content with feeling.",
     fullDescription:
-      "High-contrast, story-driven documentary and editorial imagery that captures authentic mood and cultural resonance. From commercial campaigns to artist portraits and short-form cinematic cinema.",
+      "Platform-native short films, visual brand stories, and cinematic editorial cuts that capture cultural depth and authentic emotion. Engineered for modern digital platforms and culture-forward audiences.",
+    deliverables: [
+      "Short Cinematic Brand Films",
+      "Social-First Narrative Series (Reels / TikTok)",
+      "Creator & Founder Collaborations",
+      "Campaign Story Architecture",
+      "Color Grading & Post-Production",
+    ],
+    image: "/images/services/service-row-1.webp",
+    href: "/services#content-brand-stories",
+  },
+  {
+    id: "photography",
+    index: "02",
+    title: "PHOTOGRAPHY",
+    shortDescription:
+      "People, places, products, and moments through a cinematic lens.",
+    fullDescription:
+      "High-contrast, story-driven documentary and editorial imagery exploring nocturnal architecture, authentic portraiture, lifestyle moments, and cultural texture.",
     deliverables: [
       "Editorial & Commercial Photography",
-      "Brand Films & Video Production",
-      "Director of Photography & Camera Operation",
-      "Color Grading & Post-Production",
-      "Cinematic Social Film Cuts",
+      "Artist & Founder Portraiture",
+      "Architectural & Nocturne Cityscapes",
+      "Product & Lookbook Photography",
+      "High-Resolution Archival Proofs",
     ],
-    image: "/images/services/service-1-photo-film.webp",
-    href: "/services#photo-film",
+    image: "/images/services/service-row-2.webp",
+    href: "/services#photography",
+  },
+  {
+    id: "events-community",
+    index: "03",
+    title: "EVENTS & COMMUNITY",
+    shortDescription:
+      "Capturing the energy and connections that bring people together.",
+    fullDescription:
+      "Visual documentation, experiential creative, and live storytelling for cultural gatherings, salons, exhibitions, panel discussions, and creative collisions across tech, art, and wellness.",
+    deliverables: [
+      "Live Event Visual Documentation",
+      "Experiential Event Creative",
+      "Cultural Programming & Salon Curation",
+      "Community Story Archiving",
+      "Post-Event Recap Stills & Films",
+    ],
+    image: "/images/services/service-row-3.webp",
+    href: "/services#events-community",
+  },
+  {
+    id: "art-curation",
+    index: "04",
+    title: "ART & CURATION",
+    shortDescription:
+      "Digital art, commissions, exhibitions, and cultural experiences.",
+    fullDescription:
+      "Fine art photography prints, digital art explorations, collector commissions, gallery installations, and cultural curation exploring human connection, celestial stillness, and nocturnal light.",
+    deliverables: [
+      "Limited Edition Museum-Grade Archival Prints",
+      "Custom Fine Art Commissions",
+      "Gallery & Cultural Space Installations",
+      "Digital Art & Mixed-Media Series",
+      "Curatorial Programming",
+    ],
+    image: "/images/services/service-row-4.webp",
+    href: "/services#art-curation",
   },
   {
     id: "creative-direction",
-    index: "02",
+    index: "05",
     title: "CREATIVE DIRECTION",
     shortDescription:
       "Concept development, visual storytelling and campaign direction.",
@@ -40,51 +93,14 @@ export const servicesData: Service[] = [
       "Visual Treatment & Moodboarding",
       "Campaign Concept Development",
       "Production Art Direction",
-      "Brand World & Identity Guidelines",
-      "Casting & Styling Direction",
+      "Brand World Guidelines",
     ],
     image: "/images/services/service-2-creative-direction.webp",
     href: "/services#creative-direction",
   },
   {
-    id: "social-content",
-    index: "03",
-    title: "SOCIAL & CONTENT",
-    shortDescription:
-      "Platform-native content, multi-format storytelling for culture and communities.",
-    fullDescription:
-      "Authentic social storytelling engineered for culture-forward feeds. Engaging UGC, Reels, visual series, and episodic content that feels organic rather than like advertising.",
-    deliverables: [
-      "Short-Form Video (Reels / TikTok)",
-      "UGC & Creator Collaborations",
-      "Social-First Visual Assets",
-      "Editorial Content Calendars",
-      "Community Story Archiving",
-    ],
-    image: "/images/services/service-3-social-content.webp",
-    href: "/services#social-content",
-  },
-  {
-    id: "community-events",
-    index: "04",
-    title: "COMMUNITY & EVENTS",
-    shortDescription:
-      "Curate experiences, creative gatherings and event and programming.",
-    fullDescription:
-      "Bringing people together in real life through thoughtful gatherings, exhibitions, salons, and panel discussions where art, tech, wellness, and culture intersect.",
-    deliverables: [
-      "Experiential Event Creative",
-      "Live Event Visual Documentation",
-      "Cultural Programming & Salons",
-      "Community Space Activations",
-      "Post-Event Recaps & Artifacts",
-    ],
-    image: "/images/services/service-4-community-events.webp",
-    href: "/services#community-events",
-  },
-  {
     id: "brand-strategy",
-    index: "05",
+    index: "06",
     title: "BRAND STRATEGY",
     shortDescription:
       "Positioning, storytelling and content systems that give brands a clearer creative voice.",
@@ -94,26 +110,9 @@ export const servicesData: Service[] = [
       "Brand Narrative & Positioning",
       "Audience & Cultural Research",
       "Content Architecture",
-      "Messaging & Tone of Voice Guidelines",
+      "Messaging Guidelines",
     ],
     image: "/images/work/silhouette-city.webp",
     href: "/services#brand-strategy",
-  },
-  {
-    id: "art-visual-worlds",
-    index: "06",
-    title: "ART + VISUAL WORLDS",
-    shortDescription:
-      "Original art, digital work, exhibitions, commissions and limited-edition prints.",
-    fullDescription:
-      "Fine-art photography, digital explorations, gallery installations, and custom art commissions exploring light, memory, nocturnal spaces, and human connection.",
-    deliverables: [
-      "Fine Art Photography Prints",
-      "Custom Commissioned Artwork",
-      "Gallery & Space Installations",
-      "Digital Art & Mixed-Media Series",
-    ],
-    image: "/images/art/art-moon-window.webp",
-    href: "/services#art-visual-worlds",
   },
 ];

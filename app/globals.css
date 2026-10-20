@@ -17,6 +17,7 @@
 
   --font-display: var(--font-inter-tight), "Inter Tight", -apple-system, BlinkMacSystemFont, sans-serif;
   --font-body: var(--font-inter), "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-logo: var(--font-raleway), "Raleway", sans-serif;
 }
 
 :root {

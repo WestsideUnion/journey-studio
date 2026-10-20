@@ -21,7 +21,7 @@ export default function SectionLabel({
     >
       <span className="text-[#19BDF2] font-semibold">{number}</span>
       <span className="w-4 h-[1px] bg-white/20" />
-      <span className="tracking-[0.25em]">{label}</span>
+      <span className="font-[family-name:var(--font-raleway)] font-bold tracking-[0.22em] text-white/70">{label}</span>
     </div>
   );
 }

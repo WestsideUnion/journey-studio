@@ -1,43 +1,31 @@
 import React from "react";
 import HeroSection from "@/components/home/HeroSection";
-import ApproachSection from "@/components/home/ApproachSection";
-import ServicesSection from "@/components/home/ServicesSection";
-import SelectedWorkSection from "@/components/home/SelectedWorkSection";
-import WhoWeWorkWithSection from "@/components/home/WhoWeWorkWithSection";
-import BrandsSection from "@/components/home/BrandsSection";
-import ArtPrintsSection from "@/components/home/ArtPrintsSection";
-import JournalSection from "@/components/home/JournalSection";
-import InquirySection from "@/components/home/InquirySection";
+import CollaborationsSection from "@/components/home/CollaborationsSection";
+import MeetMaheenSection from "@/components/home/MeetMaheenSection";
+import ServicesRowsSection from "@/components/home/ServicesRowsSection";
+import FeaturedWorkSection from "@/components/home/FeaturedWorkSection";
+import ClosingInviteSection from "@/components/home/ClosingInviteSection";
 
 export default function HomePage() {
   return (
     <div className="flex flex-col w-full bg-[#050708]">
-      {/* 01 Hero Section */}
+      {/* 01 Navigation & Hero */}
       <HeroSection />
 
-      {/* 02 Our Approach */}
-      <ApproachSection />
+      {/* 02 Selected Collaborations */}
+      <CollaborationsSection />
 
-      {/* 03 Services */}
-      <ServicesSection />
+      {/* 03 Meet Maheen */}
+      <MeetMaheenSection />
 
-      {/* 04 Selected Work */}
-      <SelectedWorkSection />
+      {/* 04 Work with Journey Studio (4 Horizontal Rows) */}
+      <ServicesRowsSection />
 
-      {/* 05 Who We Work With & Ideas Are Better Together Feature */}
-      <WhoWeWorkWithSection />
+      {/* 05 Selected Work (3 Featured Projects) */}
+      <FeaturedWorkSection />
 
-      {/* 06 Brands, People, Places, Communities */}
-      <BrandsSection />
-
-      {/* 07 Art & Prints */}
-      <ArtPrintsSection />
-
-      {/* 08 Journal */}
-      <JournalSection />
-
-      {/* 09 Project Inquiry */}
-      <InquirySection />
+      {/* 06 Closing Invitation */}
+      <ClosingInviteSection />
     </div>
   );
 }

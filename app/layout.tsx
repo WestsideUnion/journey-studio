@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Inter_Tight } from "next/font/google";
+import { Inter, Inter_Tight, Raleway } from "next/font/google";
 import "./globals.css";
 import SiteHeader from "@/components/layout/SiteHeader";
 import SiteFooter from "@/components/layout/SiteFooter";
@@ -15,6 +15,13 @@ const interTight = Inter_Tight({
   variable: "--font-inter-tight",
   display: "swap",
   weight: ["400", "500", "600", "700", "800", "900"],
+});
+
+const raleway = Raleway({
+  subsets: ["latin"],
+  variable: "--font-raleway",
+  display: "swap",
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
 });
 
 export const metadata: Metadata = {
@@ -65,7 +72,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${interTight.variable}`}>
+    <html lang="en" className={`${inter.variable} ${interTight.variable} ${raleway.variable}`}>
       <body className="bg-[#050708] text-[#F4F7F8] antialiased selection:bg-[#19BDF2] selection:text-[#050708]">
         <SiteHeader />
         <main id="main-content" className="relative min-h-screen">

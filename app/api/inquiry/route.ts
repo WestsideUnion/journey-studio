@@ -27,15 +27,16 @@ export async function POST(req: NextRequest) {
 
     // If Resend API key is configured, send notifications
     if (resendApiKey) {
-      const resend = new Resend(resendApiKey);
+      try {
+        const resend = new Resend(resendApiKey);
 
-      // 1. Internal notification to Maheen
-      await resend.emails.send({
-        from: fromEmail,
-        to: toEmail,
-        replyTo: data.email,
-        subject: `New Journey Studio inquiry — ${data.projectObjective || "Project"} — ${data.brand || data.firstName}`,
-        text: `
+        // 1. Internal notification to Maheen
+        await resend.emails.send({
+          from: fromEmail,
+          to: toEmail,
+          replyTo: data.email,
+          subject: `New Journey Studio inquiry — ${data.projectTypes?.join(", ") || data.projectObjective || "Project"} — ${data.brand || data.firstName}`,
+          text: `
 New project inquiry submitted on Journey Studio:
 
 Name: ${data.firstName}
@@ -43,41 +44,49 @@ Email: ${data.email}
 Brand / Company: ${data.brand || "N/A"}
 Role: ${data.role || "N/A"}
 Website / Social: ${data.website || "N/A"}
+Project Mediums: ${data.projectTypes?.join(", ") || "N/A"}
 Objective: ${data.projectObjective || "N/A"}
-Distribution: ${data.distribution?.join(", ") || "N/A"}
+Channels / Distribution: ${data.distribution?.join(", ") || "N/A"}
 Production Investment: ${data.budget || "N/A"}
 Timeline: ${data.timeline || "N/A"}
 Location: ${data.location || "N/A"}
+Discovery / Source: ${data.discovery || "N/A"}
 Brand Aesthetic: ${data.brandAesthetic || "N/A"}
-Attraction: ${data.attraction || "N/A"}
 
-Story:
+Project Story / Narrative:
 ${data.story}
-        `,
-      });
 
-      // 2. Client confirmation email
-      await resend.emails.send({
-        from: fromEmail,
-        to: data.email,
-        subject: "Your Journey Studio inquiry is in",
-        text: `Hi ${data.firstName},
+Additional Notes:
+${data.additionalNotes || "None"}
+          `,
+        });
+
+        // 2. Client confirmation email
+        await resend.emails.send({
+          from: fromEmail,
+          to: data.email,
+          subject: "Your Journey Studio inquiry is in",
+          text: `Hi ${data.firstName},
 
 Thanks for reaching out to Journey Studio.
 
-I've received your project details and will review the idea, scope, and timing. If it feels like a natural fit, I'll follow up with next steps.
+I've received your project details and will review the idea, scope, and timing. If it feels like a natural fit, I'll follow up directly with next steps.
 
 Maheen
 Journey Studio
 Toronto · Global
 https://thejourneystudio.com
-        `,
-      });
+          `,
+        });
+      } catch (emailError) {
+        console.error("Resend sending error (check domain or API key):", emailError);
+      }
     } else {
       console.log("[INQUIRY LOG] Submission received (Resend key not set in dev):", {
         name: data.firstName,
         email: data.email,
         brand: data.brand,
+        projectTypes: data.projectTypes,
         storyPreview: data.story.substring(0, 80),
       });
     }
