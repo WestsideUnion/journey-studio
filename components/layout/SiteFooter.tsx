@@ -68,7 +68,7 @@ export default function SiteFooter() {
                 <Image
                   src="/images/logo/journey-logo-lockup-white.webp"
                   alt="Journey Studio"
-                  width={183}
+                  width={213}
                   height={52}
                   className="h-full w-auto object-contain transition-transform duration-300 group-hover:scale-[1.02]"
                 />

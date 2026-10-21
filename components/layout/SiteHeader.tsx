@@ -63,7 +63,7 @@ export default function SiteHeader() {
               <Image
                 src="/images/logo/journey-logo-lockup-white.webp"
                 alt="Journey Studio"
-                width={127}
+                width={148}
                 height={36}
                 className="h-full w-auto object-contain transition-transform duration-300 group-hover:scale-[1.02]"
                 priority
