@@ -1,8 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Inter_Tight, Raleway } from "next/font/google";
 import "./globals.css";
-import SiteHeader from "@/components/layout/SiteHeader";
-import SiteFooter from "@/components/layout/SiteFooter";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -74,11 +72,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${interTight.variable} ${raleway.variable}`}>
       <body className="bg-[#050708] text-[#F4F7F8] antialiased selection:bg-[#19BDF2] selection:text-[#050708]">
-        <SiteHeader />
-        <main id="main-content" className="relative min-h-screen">
-          {children}
-        </main>
-        <SiteFooter />
+        {children}
       </body>
     </html>
   );

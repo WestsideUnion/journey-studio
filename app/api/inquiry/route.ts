@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { inquirySchema } from "@/lib/validation/inquirySchema";
 import { Resend } from "resend";
+import { writeClient, isSanityConfigured } from "@/sanity/client";
+import { token as sanityToken } from "@/sanity/env";
 
 export async function POST(req: NextRequest) {
   try {
@@ -21,6 +23,35 @@ export async function POST(req: NextRequest) {
     }
 
     const data = validation.data;
+
+    // 1. Auto-save to Sanity CRM Pipeline if configured
+    if (isSanityConfigured && sanityToken) {
+      try {
+        await writeClient.create({
+          _type: "inquiry",
+          status: "new",
+          priority: "standard",
+          firstName: data.firstName,
+          email: data.email,
+          brand: data.brand || undefined,
+          role: data.role || undefined,
+          website: data.website || undefined,
+          projectTypes: data.projectTypes,
+          projectObjective: data.projectObjective || undefined,
+          distribution: data.distribution,
+          budget: data.budget || undefined,
+          timeline: data.timeline || undefined,
+          location: data.location || undefined,
+          discovery: data.discovery || undefined,
+          story: data.story,
+          additionalNotes: data.additionalNotes || undefined,
+          submittedAt: new Date().toISOString(),
+        });
+      } catch (sanityErr) {
+        console.error("Sanity CRM lead creation error:", sanityErr);
+      }
+    }
+
     const resendApiKey = process.env.RESEND_API_KEY;
     const toEmail = process.env.INQUIRY_TO_EMAIL || "thejourneystudio2023@gmail.com";
     const fromEmail = process.env.INQUIRY_FROM_EMAIL || "Journey Studio <onboarding@resend.dev>";
