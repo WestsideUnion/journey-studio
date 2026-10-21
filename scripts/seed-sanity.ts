@@ -237,7 +237,31 @@ async function seed() {
 
   // 6. Sample CRM Inquiries
   console.log("\n📬 Seeding Sample CRM Inquiries for Maheen...");
-  const sampleInquiries = [
+  type SampleInquiry = {
+    _id: string;
+    _type: string;
+    status: string;
+    priority: string;
+    firstName: string;
+    email: string;
+    brand: string;
+    role: string;
+    website: string;
+    projectTypes: string[];
+    projectObjective: string;
+    distribution?: string[];
+    budget: string;
+    timeline: string;
+    location: string;
+    discovery: string;
+    story: string;
+    additionalNotes?: string;
+    internalNotes?: string;
+    estimatedValue?: number;
+    submittedAt: string;
+  };
+
+  const sampleInquiries: SampleInquiry[] = [
     {
       _id: "inquiry-sample-1",
       _type: "inquiry",
@@ -274,12 +298,14 @@ async function seed() {
       website: "https://torontoartscollide.ca",
       projectTypes: ["Art", "Community"],
       projectObjective: "Print Acquisition & Evening Gallery Exhibition",
+      distribution: ["Gallery Exhibition", "Collector Catalog"],
       budget: "$10,000 – $25,000",
       timeline: "November 2024",
       location: "The Junction, Toronto",
       discovery: "Referral from Superteam Canada",
       story:
         "Interested in acquiring 3 framed limited edition prints of 'Beyond Screens' and commissioning a live photo installation for our winter salon.",
+      additionalNotes: "Curatorial review board meets next Tuesday to finalize acquisition budget.",
       internalNotes: "Framing costs estimated at $1,200. Sent print proof specs yesterday.",
       estimatedValue: 14000,
       submittedAt: new Date(Date.now() - 86400000 * 3).toISOString(),
