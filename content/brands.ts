@@ -11,9 +11,9 @@ export interface BrandItem {
 export const brandsData: BrandItem[] = [
   {
     id: "tims",
-    name: "Tim's",
-    logoSrc: "/images/brands/tims.png",
-    alt: "Tim's brand collaboration",
+    name: "Tim Hortons",
+    logoSrc: "/images/brands/tim-hortons-white.webp",
+    alt: "Tim Hortons brand collaboration",
     row: 1,
     description: "Iconic Canadian coffee and cultural brand story.",
   },

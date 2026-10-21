@@ -15,7 +15,7 @@ export default function HomePage() {
       {/* 02 Selected Collaborations */}
       <CollaborationsSection />
 
-      {/* 03 Meet Maheen */}
+      {/* 03 Meet Maheenblues */}
       <MeetMaheenSection />
 
       {/* 04 Work with Journey Studio (4 Horizontal Rows) */}

@@ -33,7 +33,7 @@ export default function MeetMaheenSection() {
             <h2 className="font-[family-name:var(--font-inter-tight)] font-black text-4xl sm:text-5xl lg:text-6xl text-white uppercase tracking-[-0.03em] leading-[0.92]">
               MEET
               <br />
-              MAHEEN
+              MAHEENBLUES
             </h2>
 
             {/* Main Introduction Copy */}

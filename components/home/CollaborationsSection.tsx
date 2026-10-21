@@ -22,24 +22,30 @@ export default function CollaborationsSection() {
         <div className="flex flex-col space-y-6 md:space-y-8">
           {/* Row 1: Active Brands (Tim's, FLOJO, Superteam Canada, TRIEC) */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-14 items-center justify-items-center">
-            {/* Tim's */}
+            {/* Tim Hortons */}
             <div className="h-14 w-full flex items-center justify-center px-4 transition-opacity duration-300 opacity-80 hover:opacity-100">
-              <div className="relative w-28 md:w-36 h-10 flex items-center justify-center">
+              <div className="relative w-36 sm:w-44 md:w-48 h-10 flex items-center justify-center">
                 <Image
-                  src="/images/brands/tims-crisp.png"
-                  alt="Tim's brand collaboration"
+                  src="/images/brands/tim-hortons-white.webp"
+                  alt="Tim Hortons brand collaboration"
                   fill
-                  sizes="160px"
-                  className="object-contain object-center filter drop-shadow-[0_0_12px_rgba(255,255,255,0.2)]"
+                  sizes="200px"
+                  className="object-contain object-center filter drop-shadow-[0_0_12px_rgba(255,255,255,0.15)]"
                 />
               </div>
             </div>
 
             {/* FLOJO */}
             <div className="h-14 w-full flex items-center justify-center px-4 transition-opacity duration-300 opacity-80 hover:opacity-100">
-              <span className="font-[family-name:var(--font-inter-tight)] font-medium text-2xl md:text-3xl text-white tracking-[0.35em] text-center select-none">
-                FLOJO
-              </span>
+              <div className="relative w-28 md:w-36 h-9 flex items-center justify-center">
+                <Image
+                  src="/images/brands/flojo.png"
+                  alt="FLOJO brand collaboration"
+                  fill
+                  sizes="160px"
+                  className="object-contain object-center filter drop-shadow-[0_0_12px_rgba(255,255,255,0.15)]"
+                />
+              </div>
             </div>
 
             {/* Superteam Canada */}
