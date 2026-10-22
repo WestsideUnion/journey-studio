@@ -6,7 +6,8 @@ const BRANDS_QUERY = `*[_type == "brand"] | order(order asc) {
   name,
   "logoSrc": logo.asset->url,
   "alt": name,
-  "row": 1,
+  "row": select(order < 3 => 1, 2),
+  "tier": select(order < 3 => "headline", "partner"),
   "description": role,
   "href": url
 }`;
