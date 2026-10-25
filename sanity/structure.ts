@@ -70,7 +70,19 @@ export const structure: StructureResolver = (S) =>
 
       S.divider(),
 
-      // 2. Editorial & Portfolio Content
+      // 2. Landing Page Visuals & Backgrounds
+      S.listItem()
+        .title('🎨 Landing Page Visuals')
+        .child(
+          S.editor()
+            .id('landingPage')
+            .schemaType('landingPage')
+            .documentId('landingPage')
+        ),
+
+      S.divider(),
+
+      // 3. Editorial & Portfolio Content
       S.listItem()
         .title('🎬 Portfolio Projects')
         .child(S.documentTypeList('project').title('Case Studies & Film Projects')),
@@ -86,8 +98,4 @@ export const structure: StructureResolver = (S) =>
       S.listItem()
         .title('⚡ Services & Capabilities')
         .child(S.documentTypeList('service').title('Studio Services')),
-
-      S.listItem()
-        .title('🤝 Client Collaborations')
-        .child(S.documentTypeList('brand').title('Partner Brands & Logos')),
     ]);

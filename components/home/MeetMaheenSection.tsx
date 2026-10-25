@@ -3,7 +3,15 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
-export default function MeetMaheenSection() {
+interface MeetMaheenSectionProps {
+  imageSrc?: string;
+  altText?: string;
+}
+
+export default function MeetMaheenSection({
+  imageSrc = "/images/about/meet-maheen.webp",
+  altText = "Maheen, Toronto-based artist, photographer and founder of Journey Studio",
+}: MeetMaheenSectionProps = {}) {
   return (
     <section className="relative w-full py-20 md:py-32 bg-[#050708] border-t border-white/[0.1]">
       <div className="max-w-[1600px] mx-auto px-6 md:px-12">
@@ -12,8 +20,8 @@ export default function MeetMaheenSection() {
           <div className="lg:col-span-7">
             <div className="relative w-full aspect-[4/3] sm:aspect-[16/10] overflow-hidden rounded-xs border border-white/[0.12] bg-[#0C1115] group">
               <Image
-                src="/images/about/meet-maheen.webp"
-                alt="Maheen, Toronto-based artist, photographer and founder of Journey Studio"
+                src={imageSrc}
+                alt={altText}
                 fill
                 sizes="(max-width: 1024px) 100vw, 58vw"
                 className="object-cover object-center transition-transform duration-700 group-hover:scale-[1.02]"

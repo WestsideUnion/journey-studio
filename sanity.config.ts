@@ -20,6 +20,9 @@ export default defineConfig({
   icon: StudioLogo,
   projectId,
   dataset,
+  auth: {
+    loginMethod: 'token',
+  },
   schema: {
     types: schemaTypes,
   },

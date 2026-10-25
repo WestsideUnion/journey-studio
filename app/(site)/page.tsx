@@ -6,17 +6,30 @@ import ServicesRowsSection from "@/components/home/ServicesRowsSection";
 import FeaturedWorkSection from "@/components/home/FeaturedWorkSection";
 import ClosingInviteSection from "@/components/home/ClosingInviteSection";
 
-export default function HomePage() {
+import { getLandingPageVisuals } from "@/lib/data/landingPage";
+
+export const revalidate = 60;
+
+export default async function HomePage() {
+  const visuals = await getLandingPageVisuals();
+
   return (
     <div className="flex flex-col w-full bg-[#050708]">
       {/* 01 Navigation & Hero */}
-      <HeroSection />
+      <HeroSection
+        backgroundImage={visuals.heroBackground.url}
+        altText={visuals.heroBackground.alt}
+        opacity={visuals.heroBackground.opacity}
+      />
 
       {/* 02 Selected Collaborations */}
       <CollaborationsSection />
 
       {/* 03 Meet Maheenblues */}
-      <MeetMaheenSection />
+      <MeetMaheenSection
+        imageSrc={visuals.meetMaheenImage.url}
+        altText={visuals.meetMaheenImage.alt}
+      />
 
       {/* 04 Work with Journey Studio (4 Horizontal Rows) */}
       <ServicesRowsSection />
@@ -25,7 +38,11 @@ export default function HomePage() {
       <FeaturedWorkSection />
 
       {/* 06 Closing Invitation */}
-      <ClosingInviteSection />
+      <ClosingInviteSection
+        backgroundImage={visuals.closingBackground.url}
+        altText={visuals.closingBackground.alt}
+        opacity={visuals.closingBackground.opacity}
+      />
     </div>
   );
 }

@@ -3,17 +3,28 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
-export default function ClosingInviteSection() {
+interface ClosingInviteSectionProps {
+  backgroundImage?: string;
+  altText?: string;
+  opacity?: number;
+}
+
+export default function ClosingInviteSection({
+  backgroundImage = "/images/hero/hero-right-silhouette.webp",
+  altText = "Have a story in mind? Journey Studio collaboration",
+  opacity = 85,
+}: ClosingInviteSectionProps = {}) {
   return (
     <section className="relative w-full py-24 md:py-36 bg-[#050708] border-t border-white/[0.1] overflow-hidden">
       {/* Background Silhouette on Right */}
       <div className="absolute top-0 right-0 bottom-0 w-full md:w-[65%] lg:w-[58%] z-0 pointer-events-none">
         <Image
-          src="/images/hero/hero-right-silhouette.webp"
-          alt="Have a story in mind? Journey Studio collaboration"
+          src={backgroundImage}
+          alt={altText}
           fill
           sizes="(max-width: 768px) 100vw, 60vw"
-          className="object-cover object-center opacity-85"
+          className="object-cover object-center"
+          style={{ opacity: opacity / 100 }}
         />
         {/* Soft edge gradients blending seamlessly */}
         <div className="absolute inset-y-0 left-0 w-32 md:w-56 bg-gradient-to-r from-[#050708] to-transparent" />

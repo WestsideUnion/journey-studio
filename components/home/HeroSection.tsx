@@ -6,18 +6,29 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import CinematicCanvas from "@/components/ui/CinematicCanvas";
 
-export default function HeroSection() {
+interface HeroSectionProps {
+  backgroundImage?: string;
+  altText?: string;
+  opacity?: number;
+}
+
+export default function HeroSection({
+  backgroundImage = "/images/hero/hero-right-silhouette.webp",
+  altText = "Toronto nocturnal skyline with CN Tower and silhouette",
+  opacity = 85,
+}: HeroSectionProps = {}) {
   return (
     <section className="relative w-full min-h-[92vh] lg:min-h-screen flex flex-col justify-center overflow-hidden pt-32 pb-16 md:pb-24 bg-[#050708]">
       {/* Background Silhouette & Skyline on Right */}
       <div className="absolute top-0 right-0 bottom-0 w-full md:w-[65%] lg:w-[58%] z-0 pointer-events-none">
         <Image
-          src="/images/hero/hero-right-silhouette.webp"
-          alt="Toronto nocturnal skyline with CN Tower and silhouette"
+          src={backgroundImage}
+          alt={altText}
           fill
           priority
           sizes="(max-width: 768px) 100vw, 60vw"
-          className="object-cover object-center opacity-85"
+          className="object-cover object-center"
+          style={{ opacity: opacity / 100 }}
         />
         {/* Soft edge gradients blending seamlessly into dark background */}
         <div className="absolute inset-y-0 left-0 w-32 md:w-56 bg-gradient-to-r from-[#050708] to-transparent" />
