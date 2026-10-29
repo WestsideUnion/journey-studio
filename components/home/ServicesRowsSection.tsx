@@ -2,9 +2,16 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { Service } from "@/content/services";
 
-export default function ServicesRowsSection() {
-  const serviceRows = [
+interface ServicesRowsSectionProps {
+  services?: Service[];
+}
+
+export default function ServicesRowsSection({
+  services,
+}: ServicesRowsSectionProps = {}) {
+  const defaultRows = [
     {
       id: "content-brand-stories",
       title: "CONTENT & BRAND STORIES",
@@ -38,6 +45,18 @@ export default function ServicesRowsSection() {
       href: "/services#art-curation",
     },
   ];
+
+  const serviceRows =
+    services && services.length > 0
+      ? services.slice(0, 4).map((s) => ({
+          id: s.id,
+          title: s.title,
+          description: s.shortDescription,
+          image: s.image,
+          alt: s.title,
+          href: s.href,
+        }))
+      : defaultRows;
 
   return (
     <section className="relative w-full py-20 md:py-32 bg-[#050708] border-t border-white/[0.1]">

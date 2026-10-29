@@ -3,9 +3,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Check } from "lucide-react";
 import SectionLabel from "@/components/ui/SectionLabel";
-import { servicesData } from "@/content/services";
+import { getServices } from "@/lib/data/services";
 
-export default function ServicesPage() {
+export const dynamic = "force-dynamic";
+
+export default async function ServicesPage() {
+  const services = await getServices();
+
   return (
     <div className="w-full pt-36 pb-32 bg-[#050708] min-h-screen">
       <div className="max-w-[1600px] mx-auto px-6 md:px-12">
@@ -24,7 +28,7 @@ export default function ServicesPage() {
 
         {/* Detailed Service Rows */}
         <div className="space-y-16">
-          {servicesData.map((service, idx) => (
+          {services.map((service, idx) => (
             <div
               key={service.id}
               id={service.id}

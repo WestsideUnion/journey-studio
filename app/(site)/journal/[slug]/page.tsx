@@ -4,7 +4,10 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import { journalPostsData } from "@/content/journal";
+import { getJournalPostBySlug } from "@/lib/data/journal";
 import SectionLabel from "@/components/ui/SectionLabel";
+
+export const dynamic = "force-dynamic";
 
 export function generateStaticParams() {
   return journalPostsData.map((post) => ({
@@ -18,7 +21,7 @@ export default async function JournalPostPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const post = journalPostsData.find((p) => p.slug === slug);
+  const post = await getJournalPostBySlug(slug);
 
   if (!post) {
     notFound();

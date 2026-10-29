@@ -34,7 +34,7 @@ export const defaultLandingPageVisuals: LandingPageVisuals = {
   },
 };
 
-const LANDING_PAGE_QUERY = `*[_type == "landingPage" || _id == "landingPage" || _id == "drafts.landingPage"][0] {
+const LANDING_PAGE_QUERY = `*[_type == "landingPage" || _id == "landingPage"] | order(_updatedAt desc)[0] {
   "heroBackground": {
     "url": heroBackground.asset->url,
     "alt": heroBackground.alt,
@@ -55,7 +55,9 @@ export async function getLandingPageVisuals(): Promise<LandingPageVisuals> {
   if (isSanityConfigured) {
     try {
       const data = await client.fetch<Partial<LandingPageVisuals> | null>(
-        LANDING_PAGE_QUERY
+        LANDING_PAGE_QUERY,
+        {},
+        { cache: "no-store" }
       );
 
       if (data) {

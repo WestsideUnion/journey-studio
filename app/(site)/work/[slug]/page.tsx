@@ -4,7 +4,10 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
 import { projectsData } from "@/content/projects";
+import { getProjects } from "@/lib/data/projects";
 import SectionLabel from "@/components/ui/SectionLabel";
+
+export const dynamic = "force-dynamic";
 
 export function generateStaticParams() {
   return projectsData.map((project) => ({
@@ -18,14 +21,15 @@ export default async function ProjectCaseStudyPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const projectIndex = projectsData.findIndex((p) => p.slug === slug);
+  const projects = await getProjects();
+  const projectIndex = projects.findIndex((p) => p.slug === slug);
 
   if (projectIndex === -1) {
     notFound();
   }
 
-  const project = projectsData[projectIndex];
-  const nextProject = projectsData[(projectIndex + 1) % projectsData.length];
+  const project = projects[projectIndex];
+  const nextProject = projects[(projectIndex + 1) % projects.length];
 
   return (
     <div className="w-full pt-32 pb-32 bg-[#050708] min-h-screen">

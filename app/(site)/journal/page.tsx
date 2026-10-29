@@ -3,9 +3,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import SectionLabel from "@/components/ui/SectionLabel";
-import { journalPostsData } from "@/content/journal";
+import { getJournalPosts } from "@/lib/data/journal";
 
-export default function JournalPage() {
+export const dynamic = "force-dynamic";
+
+export default async function JournalPage() {
+  const journalPosts = await getJournalPosts();
+
   return (
     <div className="w-full pt-36 pb-32 bg-[#050708] min-h-screen">
       <div className="max-w-[1600px] mx-auto px-6 md:px-12">
@@ -26,7 +30,7 @@ export default function JournalPage() {
 
         {/* Journal Posts Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
-          {journalPostsData.map((post) => (
+          {journalPosts.map((post) => (
             <Link
               key={post.slug}
               href={`/journal/${post.slug}`}

@@ -7,11 +7,17 @@ import FeaturedWorkSection from "@/components/home/FeaturedWorkSection";
 import ClosingInviteSection from "@/components/home/ClosingInviteSection";
 
 import { getLandingPageVisuals } from "@/lib/data/landingPage";
+import { getProjects } from "@/lib/data/projects";
+import { getServices } from "@/lib/data/services";
 
-export const revalidate = 60;
+export const dynamic = "force-dynamic";
 
 export default async function HomePage() {
-  const visuals = await getLandingPageVisuals();
+  const [visuals, projects, services] = await Promise.all([
+    getLandingPageVisuals(),
+    getProjects(),
+    getServices(),
+  ]);
 
   return (
     <div className="flex flex-col w-full bg-[#050708]">
@@ -32,10 +38,10 @@ export default async function HomePage() {
       />
 
       {/* 04 Work with Journey Studio (4 Horizontal Rows) */}
-      <ServicesRowsSection />
+      <ServicesRowsSection services={services} />
 
       {/* 05 Selected Work (3 Featured Projects) */}
-      <FeaturedWorkSection />
+      <FeaturedWorkSection projects={projects} />
 
       {/* 06 Closing Invitation */}
       <ClosingInviteSection

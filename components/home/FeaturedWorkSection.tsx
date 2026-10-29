@@ -2,11 +2,17 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { projectsData } from "@/content/projects";
+import { Project, projectsData } from "@/content/projects";
 
-export default function FeaturedWorkSection() {
+interface FeaturedWorkSectionProps {
+  projects?: Project[];
+}
+
+export default function FeaturedWorkSection({
+  projects = projectsData,
+}: FeaturedWorkSectionProps = {}) {
   // Take top 3 projects matching mockup
-  const featuredProjects = projectsData.slice(0, 3);
+  const featuredProjects = projects.slice(0, 3);
 
   return (
     <section id="selected-work" className="relative w-full py-20 md:py-32 bg-[#050708] border-t border-white/[0.1]">

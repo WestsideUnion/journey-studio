@@ -3,11 +3,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import SectionLabel from "@/components/ui/SectionLabel";
-import { artworksData } from "@/content/artworks";
+import { getArtworks } from "@/lib/data/artworks";
 
-export default function ArtPage() {
-  const featured = artworksData[0];
-  const gallery = artworksData.slice(1);
+export const dynamic = "force-dynamic";
+
+export default async function ArtPage() {
+  const artworks = await getArtworks();
+  const featured = artworks[0];
+  const gallery = artworks.slice(1);
 
   return (
     <div className="w-full pt-36 pb-32 bg-[#050708] min-h-screen">
