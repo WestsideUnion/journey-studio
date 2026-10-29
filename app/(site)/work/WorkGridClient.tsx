@@ -109,3 +109,4 @@ export default function WorkGridClient({ projects }: WorkGridClientProps) {
     </div>
   );
 }
+

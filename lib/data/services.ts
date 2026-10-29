@@ -60,3 +60,4 @@ export async function getServices(): Promise<Service[]> {
   }
   return servicesData;
 }
+
