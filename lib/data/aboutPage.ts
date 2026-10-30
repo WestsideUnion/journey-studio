@@ -171,3 +171,4 @@ export async function getAboutPageData(): Promise<AboutPageData> {
 
   return defaultAboutPageData;
 }
+

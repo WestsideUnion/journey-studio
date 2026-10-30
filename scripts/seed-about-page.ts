@@ -111,3 +111,4 @@ run().catch((err) => {
   console.error("❌ Failed to initialize about page:", err);
   process.exit(1);
 });
+
