@@ -132,15 +132,35 @@ export const projectSchema = defineType({
     defineField({
       name: 'order',
       title: 'Display Order Rank',
+      description: 'Controls order on Homepage (top 3) and Work page (0 = First, 1 = Second, 2 = Third, etc.)',
       type: 'number',
       initialValue: 0,
     }),
   ],
+  orderings: [
+    {
+      title: 'Display Order (Low to High)',
+      name: 'orderAsc',
+      by: [
+        { field: 'order', direction: 'asc' },
+        { field: 'year', direction: 'desc' },
+      ],
+    },
+  ],
   preview: {
     select: {
       title: 'title',
-      subtitle: 'client',
+      client: 'client',
+      order: 'order',
       media: 'coverImage',
+    },
+    prepare({ title, client, order, media }) {
+      const rank = typeof order === 'number' ? `#${order + 1} · ` : '';
+      return {
+        title,
+        subtitle: `${rank}${client || ''}`,
+        media,
+      };
     },
   },
 });

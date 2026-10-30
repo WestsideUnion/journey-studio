@@ -73,12 +73,38 @@ export const artworkSchema = defineType({
       type: 'text',
       rows: 3,
     }),
+    defineField({
+      name: 'order',
+      title: 'Display Order Rank',
+      description: 'Controls order on the Art page (0 = Featured Hero, 1 = First in Gallery, 2 = Second, etc.)',
+      type: 'number',
+      initialValue: 0,
+    }),
+  ],
+  orderings: [
+    {
+      title: 'Display Order (Low to High)',
+      name: 'orderAsc',
+      by: [
+        { field: 'order', direction: 'asc' },
+        { field: 'year', direction: 'desc' },
+      ],
+    },
   ],
   preview: {
     select: {
       title: 'title',
-      subtitle: 'edition',
+      edition: 'edition',
+      order: 'order',
       media: 'image',
+    },
+    prepare({ title, edition, order, media }) {
+      const rank = typeof order === 'number' ? `#${order + 1} · ` : '';
+      return {
+        title,
+        subtitle: `${rank}${edition || ''}`,
+        media,
+      };
     },
   },
 });

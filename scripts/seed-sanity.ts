@@ -96,9 +96,15 @@ async function seed() {
     const galleryImageAssets = [];
 
     if (item.galleryImages) {
-      for (const gPath of item.galleryImages) {
+      for (let gIdx = 0; gIdx < item.galleryImages.length; gIdx++) {
+        const gPath = item.galleryImages[gIdx];
         const gAsset = await uploadImage(gPath);
-        if (gAsset) galleryImageAssets.push(gAsset);
+        if (gAsset) {
+          galleryImageAssets.push({
+            ...gAsset,
+            _key: `gallery-${i}-${gIdx}`,
+          });
+        }
       }
     }
 

@@ -1,7 +1,7 @@
 import { client, isSanityConfigured } from "@/sanity/client";
 import { JournalPost, journalPostsData } from "@/content/journal";
 
-const JOURNAL_POSTS_QUERY = `*[_type == "journal"] | order(date desc) {
+const JOURNAL_POSTS_QUERY = `*[_type == "journal"] | order(coalesce(order, 999) asc, date desc) {
   "slug": slug.current,
   category,
   title,

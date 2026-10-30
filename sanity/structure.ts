@@ -85,17 +85,36 @@ export const structure: StructureResolver = (S) =>
       // 3. Editorial & Portfolio Content
       S.listItem()
         .title('🎬 Portfolio Projects')
-        .child(S.documentTypeList('project').title('Case Studies & Film Projects')),
+        .child(
+          S.documentTypeList('project')
+            .title('Case Studies & Film Projects')
+            .defaultOrdering([{ field: 'order', direction: 'asc' }])
+        ),
 
       S.listItem()
         .title('🖼️ Art & Visuals')
-        .child(S.documentTypeList('artwork').title('Fine Art Prints & Editions')),
+        .child(
+          S.documentTypeList('artwork')
+            .title('Fine Art Prints & Editions')
+            .defaultOrdering([{ field: 'order', direction: 'asc' }])
+        ),
 
       S.listItem()
         .title('✍️ Journal & Essays')
-        .child(S.documentTypeList('journal').title('Journal Articles')),
+        .child(
+          S.documentTypeList('journal')
+            .title('Journal Articles')
+            .defaultOrdering([
+              { field: 'order', direction: 'asc' },
+              { field: 'date', direction: 'desc' },
+            ])
+        ),
 
       S.listItem()
         .title('⚡ Services & Capabilities')
-        .child(S.documentTypeList('service').title('Studio Services')),
+        .child(
+          S.documentTypeList('service')
+            .title('Studio Services')
+            .defaultOrdering([{ field: 'order', direction: 'asc' }])
+        ),
     ]);

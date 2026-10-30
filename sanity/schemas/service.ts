@@ -50,15 +50,32 @@ export const serviceSchema = defineType({
     defineField({
       name: 'order',
       title: 'Display Order Rank',
+      description: 'Controls order on Homepage (top 4) and Services page (0 = First, 1 = Second, etc.)',
       type: 'number',
       initialValue: 0,
     }),
+  ],
+  orderings: [
+    {
+      title: 'Display Order (Low to High)',
+      name: 'orderAsc',
+      by: [{ field: 'order', direction: 'asc' }],
+    },
   ],
   preview: {
     select: {
       title: 'title',
       subtitle: 'subtitle',
+      order: 'order',
       media: 'image',
+    },
+    prepare({ title, subtitle, order, media }) {
+      const rank = typeof order === 'number' ? `#${order + 1} · ` : '';
+      return {
+        title,
+        subtitle: `${rank}${subtitle || ''}`,
+        media,
+      };
     },
   },
 });

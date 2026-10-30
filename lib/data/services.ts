@@ -11,7 +11,7 @@ interface SanityServiceDoc {
   order?: number;
 }
 
-const SERVICES_QUERY = `*[_type == "service"] | order(order asc) {
+const SERVICES_QUERY = `*[_type == "service"] | order(coalesce(order, 999) asc) {
   "id": slug.current,
   title,
   "shortDescription": subtitle,

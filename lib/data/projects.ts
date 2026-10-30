@@ -1,7 +1,7 @@
 import { client, isSanityConfigured } from "@/sanity/client";
 import { Project, projectsData } from "@/content/projects";
 
-const PROJECTS_QUERY = `*[_type == "project"] | order(order asc, year desc) {
+const PROJECTS_QUERY = `*[_type == "project"] | order(coalesce(order, 999) asc, year desc) {
   "slug": slug.current,
   title,
   subtitle,

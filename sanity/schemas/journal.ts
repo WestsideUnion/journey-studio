@@ -85,12 +85,38 @@ export const journalSchema = defineType({
         },
       ],
     }),
+    defineField({
+      name: 'order',
+      title: 'Display Order Rank',
+      description: 'Controls order on the Journal page (0 = First, 1 = Second, etc.)',
+      type: 'number',
+      initialValue: 0,
+    }),
+  ],
+  orderings: [
+    {
+      title: 'Display Order (Low to High)',
+      name: 'orderAsc',
+      by: [
+        { field: 'order', direction: 'asc' },
+        { field: 'date', direction: 'desc' },
+      ],
+    },
   ],
   preview: {
     select: {
       title: 'title',
-      subtitle: 'category',
+      category: 'category',
+      order: 'order',
       media: 'coverImage',
+    },
+    prepare({ title, category, order, media }) {
+      const rank = typeof order === 'number' ? `#${order + 1} · ` : '';
+      return {
+        title,
+        subtitle: `${rank}${category || ''}`,
+        media,
+      };
     },
   },
 });
