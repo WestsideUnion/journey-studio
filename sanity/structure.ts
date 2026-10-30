@@ -70,7 +70,7 @@ export const structure: StructureResolver = (S) =>
 
       S.divider(),
 
-      // 2. Landing Page Visuals & Backgrounds
+      // 2. Page Singletons (Landing Page & About Page)
       S.listItem()
         .title('🎨 Landing Page Visuals')
         .child(
@@ -78,6 +78,15 @@ export const structure: StructureResolver = (S) =>
             .id('landingPage')
             .schemaType('landingPage')
             .documentId('landingPage')
+        ),
+
+      S.listItem()
+        .title('👤 About Page')
+        .child(
+          S.editor()
+            .id('aboutPage')
+            .schemaType('aboutPage')
+            .documentId('aboutPage')
         ),
 
       S.divider(),
@@ -97,17 +106,6 @@ export const structure: StructureResolver = (S) =>
           S.documentTypeList('artwork')
             .title('Fine Art Prints & Editions')
             .defaultOrdering([{ field: 'order', direction: 'asc' }])
-        ),
-
-      S.listItem()
-        .title('✍️ Journal & Essays')
-        .child(
-          S.documentTypeList('journal')
-            .title('Journal Articles')
-            .defaultOrdering([
-              { field: 'order', direction: 'asc' },
-              { field: 'date', direction: 'desc' },
-            ])
         ),
 
       S.listItem()

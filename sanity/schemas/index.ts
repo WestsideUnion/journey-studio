@@ -5,12 +5,14 @@ import { serviceSchema } from './service';
 import { brandSchema } from './brand';
 import { inquirySchema } from './inquiry';
 import { landingPageSchema } from './landingPage';
+import { aboutPageSchema } from './aboutPage';
 
 export const schemaTypes = [
   // CRM & Leads
   inquirySchema,
-  // Landing Page & Visual Settings
+  // Page Singletons & Visual Settings
   landingPageSchema,
+  aboutPageSchema,
   // Portfolio & Editorial Content
   projectSchema,
   artworkSchema,
