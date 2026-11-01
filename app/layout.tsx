@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Inter_Tight, Raleway } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 const inter = Inter({
@@ -74,6 +75,7 @@ export default function RootLayout({
     <html lang="en" className={`${inter.variable} ${interTight.variable} ${raleway.variable}`}>
       <body className="bg-[#050708] text-[#F4F7F8] antialiased selection:bg-[#19BDF2] selection:text-[#050708]">
         {children}
+        <Analytics />
       </body>
     </html>
   );
